@@ -1,0 +1,132 @@
+<div class="container">
+  <h1>HTTP-Example</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="pfname"
+          placeholder="Patient First Name"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="plname"
+          placeholder="Patient Last Name"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="date"
+          [(ngModel)]="pbirthdate"
+          placeholder="Patient DOB"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="paddress"
+          placeholder="Patient Address"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="pphone"
+          placeholder="Patient Phone Number"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="boolean"
+          [(ngModel)]="preadyForDoctor"
+          placeholder="Patient Ready for Doctor?"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="date"
+          [(ngModel)]="papptDate"
+          placeholder="Patient Appointment Date"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="pheight"
+          placeholder="Patient Height"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="number"
+          [(ngModel)]="pweight"
+          placeholder="Patient Weight"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="pnotes"
+          placeholder="Patient Notes"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="number"
+          [(ngModel)]="proomNumber"
+          placeholder="Patient Room Number"
+        />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="addNewPatient()">
+          Add Patient
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <button class="btn btn-danger" (click)="onClearData()">
+        Clear the List
+      </button>
+    </div>
+  </div>
+  <hr />
+  <h3>Patient List</h3>
+
+  <div class="card" *ngFor="let patient of patientList">
+    <div class="card-header">
+      <h4>{{ patient.fname }} {{ patient.lname }}</h4>
+    </div>
+    <div class="card-body">
+      <ul>
+        Patient id:
+        {{
+          patient.id
+        }}
+      </ul>
+      <ul>
+        Ready for Doctor?:
+        {{
+          patient.readyForDoctor
+        }}
+      </ul>
+    </div>
+  </div>
+</div>
