@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../patient.service';
 import { Patient } from '../patient';
-import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-patient-list',
@@ -30,7 +29,7 @@ export class PatientListComponent implements OnInit {
     //this.patientList = this.patService.PATIENTS;
   }
 
-  addNewStudent() {
+  addNewPatient() {
     const newPatient: Patient = {
       id: ++this.nextID,
       fname: this.pfname,

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NurseComponent } from '../nurse/nurse.component';
 
 @Component({
   selector: 'app-navbar',
