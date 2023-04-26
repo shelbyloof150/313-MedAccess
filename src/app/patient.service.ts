@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Patient } from './patient';
+import { map } from 'rxjs/operators';
+
 @Injectable({ providedIn: 'root' })
 export class PatientService {
   PATIENTS: Patient[] = [
@@ -26,6 +28,28 @@ export class PatientService {
     return this.http.post(
       'https://medaccess-158a2-default-rtdb.firebaseio.com/' + 'patient.json',
       newPat
+    );
+  }
+
+  getPatients() {
+    return this.http
+      .get<Patient[]>(
+        'https://medaccess-158a2-default-rtdb.firebaseio.com/' + 'patient.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const patientArray: Patient[] = [];
+          for (const key in responseData) {
+            patientArray.push(responseData[key]);
+          }
+          return patientArray;
+        })
+      );
+  }
+
+  clearData() {
+    return this.http.delete(
+      'https://medaccess-158a2-default-rtdb.firebaseio.com/' + 'patient.json'
     );
   }
 }

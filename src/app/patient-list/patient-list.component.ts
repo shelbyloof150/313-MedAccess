@@ -25,8 +25,15 @@ export class PatientListComponent implements OnInit {
 
   constructor(private patService: PatientService) {}
 
+  fetchData() {
+    this.patService.getPatients().subscribe((data) => {
+      this.patientList = data;
+      console.log(data);
+    });
+  }
+
   ngOnInit() {
-    //this.patientList = this.patService.PATIENTS;
+    this.fetchData();
   }
 
   addNewPatient() {
@@ -44,13 +51,17 @@ export class PatientListComponent implements OnInit {
       notes: this.pnotes,
       roomNumber: this.proomNumber,
     };
-    //this.patients.push(newPatient);
+    //this.patientList.push(newPatient);
     this.patService.addPatient(newPatient).subscribe((data) => {
       console.log(data);
+      this.fetchData();
     });
   }
 
   onClearData() {
-    this.patientList = [];
+    this.patService.clearData().subscribe((data) => {
+      this.fetchData();
+      this.nextID = 0;
+    });
   }
 }
