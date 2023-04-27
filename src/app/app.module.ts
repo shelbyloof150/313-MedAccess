@@ -17,6 +17,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 //import { MatFormFieldModule} from '@angular/material/datepicker';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ReceptionistComponent } from './receptionist/receptionist.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     DatepickerComponent,
     PatientListComponent,
+    ReceptionistComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,5 +41,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [AppComponent, NavbarComponent],
+  exports: [RouterModule],
 })
 export class AppModule {}
