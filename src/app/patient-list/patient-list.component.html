@@ -100,14 +100,14 @@
 </div>
 
 <div class="container">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <button class="btn btn-danger" (click)="onClearData()">
         Clear the List
       </button>
     </div>
   </div>
-  <hr />
+  <hr /> -->
   <h1>Patient List</h1>
 
   <div class="card" *ngFor="let patient of patientList">
@@ -116,17 +116,20 @@
     </div>
     <div class="card-body">
       <ul>
-        Patient id:
+        Room Number:
         {{
-          patient.id
+          patient.roomNumber
         }}
       </ul>
       <ul>
-        Ready for Doctor?:
+        Ready for Doctor?
         {{
           patient.readyForDoctor
         }}
       </ul>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-secondary" routerLink="/edit">Edit</a>
     </div>
   </div>
 </div>
